@@ -1,3 +1,4 @@
+import 'package:flavr_recipes/screens/recipe_details_screen.dart';
 import 'package:flavr_recipes/screens/search_screen.dart';
 import 'package:flavr_recipes/utils/constants.dart';
 import 'package:flavr_recipes/widgets/recipe_card.dart';
@@ -78,34 +79,29 @@ class _RecipesScreenState extends State<RecipesScreen> {
   }
 
   Widget _buildRecipe() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.0),
-      child: Container(
-        width: 208.0,
-        height: 128.0,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage('assets/images/recipe1.png'),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute<Null>(
+            builder: (BuildContext context) {
+              return RecipeDetailsScreen();
+            },
           ),
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildRecipeLatests() {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-      child: Container(
-        width: 344.0,
-        height: 232.0,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage('assets/images/recipe11.png'),
+        );
+      },
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        child: Container(
+          width: 208.0,
+          height: 128.0,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage('assets/images/recipe1.png'),
+            ),
+            borderRadius: BorderRadius.circular(5.0),
           ),
-          borderRadius: BorderRadius.circular(5.0),
         ),
       ),
     );
@@ -131,13 +127,14 @@ class _RecipesScreenState extends State<RecipesScreen> {
         IconButton(
           onPressed: () {
             Navigator.push(
-                context,
-                CupertinoPageRoute<Null>(
-                  builder: (BuildContext context) {
-                    return SearchScreen();
-                  },
-                  fullscreenDialog: true,
-                ));
+              context,
+              CupertinoPageRoute<Null>(
+                builder: (BuildContext context) {
+                  return SearchScreen();
+                },
+                fullscreenDialog: true,
+              ),
+            );
           },
           icon: Icon(
             Icons.search,
