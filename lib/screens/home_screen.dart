@@ -41,34 +41,48 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
       ),
-      bottomNavigationBar: CupertinoTabBar(
-        currentIndex: _currentIndex,
-        onTap: (int index) {
-          setState(() {
-            _currentIndex = index;
-          });
-          _pageController.animateToPage(
-            index,
-            duration: Duration(milliseconds: 200),
-            curve: Curves.easeIn,
-          );
-        },
-        activeColor: Constants.orangeColor,
-        inactiveColor: Constants.grayColor,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.fastfood),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-          ),
-        ],
+      bottomNavigationBar: Container(
+        height: 100.0,
+        decoration: BoxDecoration(
+          border: null,
+          boxShadow: [
+            BoxShadow(
+              color: Constants.blackColor,
+              blurRadius: 10.0,
+              spreadRadius: 2.0,
+              offset: Offset(10.0, 10.0),
+            ),
+          ],
+        ),
+        child: CupertinoTabBar(
+          currentIndex: _currentIndex,
+          onTap: (int index) {
+            setState(() {
+              _currentIndex = index;
+            });
+            _pageController.animateToPage(
+              index,
+              duration: Duration(milliseconds: 200),
+              curve: Curves.easeIn,
+            );
+          },
+          activeColor: Constants.orangeColor,
+          inactiveColor: Constants.grayColor,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.fastfood),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+            ),
+          ],
+        ),
       ),
     );
   }
