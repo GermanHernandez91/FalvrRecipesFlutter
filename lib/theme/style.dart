@@ -20,7 +20,7 @@ ThemeData buildAppTheme(BuildContext context) {
     ),
     textTheme: TextTheme(
       caption: TextStyle(
-        fontSize: 25.0,
+        fontSize: 20.0,
         fontFamily: 'Proxima_Nova',
         fontWeight: FontWeight.bold,
         letterSpacing: 1.75,
