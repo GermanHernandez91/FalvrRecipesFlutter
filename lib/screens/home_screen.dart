@@ -14,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
-  PageController _pageController;
 
   final List<Widget> _pages = [
     RecipesScreen(),
@@ -24,26 +23,13 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   @override
-  void initState() {
-    super.initState();
-    _pageController = PageController();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        children: _pages,
-        onPageChanged: (int index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
+      body: _pages[_currentIndex],
       bottomNavigationBar: Container(
         height: 100.0,
         decoration: BoxDecoration(
+          color: Colors.white,
           border: null,
           boxShadow: [
             BoxShadow(
@@ -60,11 +46,6 @@ class _HomeScreenState extends State<HomeScreen> {
             setState(() {
               _currentIndex = index;
             });
-            _pageController.animateToPage(
-              index,
-              duration: Duration(milliseconds: 200),
-              curve: Curves.easeIn,
-            );
           },
           activeColor: Constants.orangeColor,
           inactiveColor: Constants.grayColor,
